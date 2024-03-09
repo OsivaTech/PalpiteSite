@@ -49,7 +49,7 @@ function fetchApi():ApiType {
                 },
                 body: JSON.stringify(object)
             })
-            return await response.json()
+            return response
         },
         // put: async (url: string, object: any): Promise<JSON | any> => {
     
