@@ -34,7 +34,7 @@ async function isAuthenticated(req: NextRequest): Promise<boolean> {
 
     if(!token) return false 
 
-    const decodedToken = await verify(token, process.env.ACCESS_TOKEN as string)
+    const decodedToken = await verify(token, "F]yhPX'z~!slr29pHQv./u\r\nj/P_N#DfBR~,Epu}9\"MA?@\r\nb2rB6jqGpEJfQ`ySxW8d$R\r\nsWQh(6uU},.8J3C'%=R>+~\r\ngRc:Yd_*mK?=4t[P]6SDh$")
 
     return decodedToken.id ? true : false;
 
@@ -62,7 +62,7 @@ async function isAdmin(req: NextRequest): Promise<boolean> {
     
     if(!token) return false 
 
-    const decodedToken = <any> await verify(token, process.env.ACCESS_TOKEN as string)
+    const decodedToken = <any> await verify(token, "F]yhPX'z~!slr29pHQv./u\r\nj/P_N#DfBR~,Epu}9\"MA?@\r\nb2rB6jqGpEJfQ`ySxW8d$R\r\nsWQh(6uU},.8J3C'%=R>+~\r\ngRc:Yd_*mK?=4t[P]6SDh$")
     
     return Number(decodedToken.role) <= 200 ? true : false;
 

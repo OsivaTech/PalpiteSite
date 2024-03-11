@@ -25,7 +25,7 @@ function fetchApi():ApiType {
     return {
 
         get: async (url: string, object?: any): Promise<JSON | any> => {
-        
+            
             const response = await fetch(`https://localhost:7268${url}` + `${ object ? `?${new URLSearchParams(object)}` : ''}`, {
                 method: 'GET',
                 mode: 'cors',
@@ -49,7 +49,7 @@ function fetchApi():ApiType {
                 },
                 body: JSON.stringify(object)
             })
-            return response
+            return await response.json()
         },
         // put: async (url: string, object: any): Promise<JSON | any> => {
     

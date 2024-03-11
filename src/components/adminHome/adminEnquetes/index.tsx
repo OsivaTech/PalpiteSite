@@ -50,7 +50,7 @@ function AdminEnquetesComponents() {
 
     async function del(indexVote: number, indexOption: number) {
         const id = votes[indexVote].id
-        const response = await Api.delete(`api/auth/vote?id=${id}`)
+        const response = await Api.delete(`/api/auth/vote?id=${id}`)
         if (response.id) toast.success('Enquete excluída com sucesso!')
         const responseVote = await Api.get('/api/auth/vote')
         setVote(responseVote)

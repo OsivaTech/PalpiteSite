@@ -78,10 +78,8 @@ function CardPalpite() {
             return toast.error('Jogo já começou ou está em andamento, você não pode enviar um palpite')
         } else {
             // O jogo ainda não começou, pode enviar o palpite
-            const response = await Api.post('/api/auth/palpitation', myObj)
-            if (response.status === 401) { return toast.error('Faça login para enviar seu palpite') }
-            if (response.status === 409) { return toast.error('Você já deu um palpite nesse jogo') }
-            if (response.status !== 201) { return toast.error('Ocorreu um erro enviar seu palpite, tente novamente') }
+            const { message, ...res } = await Api.post('/api/auth/palpitation', myObj)
+            if (message) { return toast.error('Faça login para enviar seu palpite') }
             return toast.success(`Palpite enviado! Boa sorte!`)
         }
     }
