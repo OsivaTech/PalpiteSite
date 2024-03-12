@@ -8,6 +8,7 @@ import { objPalpiteType } from "src/types/objPalpiteType"
 import { toast } from "react-toastify"
 import timeBranco from "/public/assets/assets/clubes/branco.png"
 import ModalClassificacao from "../modalClassificacao"
+import moment from "moment"
 
 function CardPalpite() {
 
@@ -70,10 +71,10 @@ function CardPalpite() {
         }
 
         const { horario } = objPalpite
-        const dataDoJogo = new Date(Date.parse(horario));
-        const horaAtual = new Date();
-
-        if (dataDoJogo <= horaAtual) {
+        let dataJogo = moment().format(horario)
+        let dateNow = moment().format();
+        
+        if (dateNow >= dataJogo) {
             // O jogo já começou ou está em andamento, então não pode enviar o palpite
             return toast.error('Jogo já começou ou está em andamento, você não pode enviar um palpite')
         } else {
