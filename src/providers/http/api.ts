@@ -26,7 +26,7 @@ function fetchApi():ApiType {
 
         get: async (url: string, object?: any): Promise<JSON | any> => {
             
-            const response = await fetch(`https://localhost:7268${url}` + `${ object ? `?${new URLSearchParams(object)}` : ''}`, {
+            const response = await fetch(`http://localhost:5113${url}` + `${ object ? `?${new URLSearchParams(object)}` : ''}`, {
                 method: 'GET',
                 mode: 'cors',
                 headers: {
@@ -40,7 +40,7 @@ function fetchApi():ApiType {
         
         post: async (url: string, object: any): Promise<JSON | any> => {
                 
-            const response = await fetch(`https://localhost:7268${url}`, {
+            const response = await fetch(`http://localhost:5113${url}`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
@@ -57,7 +57,7 @@ function fetchApi():ApiType {
         
         delete: async (url: string, object?: any): Promise<JSON | any> => {
                 
-            const response = await fetch(`https://localhost:7268${url}` + `${ object ? `?${new URLSearchParams(object)}` : ''}`, {
+            const response = await fetch(`http://localhost:5113${url}` + `${ object ? `?${new URLSearchParams(object)}` : ''}`, {
                 method: 'DELETE',
                 mode: 'cors',
                 headers: {
@@ -70,7 +70,7 @@ function fetchApi():ApiType {
     
         auth: async (url: string, object: any,): Promise<JSON | any> => {
     
-            const response = await fetch(`https://localhost:7268${url}`, {
+            const response = await fetch(`http://localhost:5113${url}`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
